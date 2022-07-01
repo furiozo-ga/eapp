@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eapp
+  labels:
+    app: eapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eapp
+  template:
+    metadata:
+      labels:
+        app: eapp
+    spec:
+      containers:
+      - name: eapp
+        image: furiozoga/eapp
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 1111
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eapp
+spec:
+  ports:
+  - port: 1111
+    protocol: TCP
+    targetPort: 1111
+  selector:
+    app: eapp
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    cert-manager.io/cluster-issuer: http-issuer
+    nginx.org/proxy-connect-timeout: 1m
+    nginx.org/proxy-read-timeout: 1m
+  name: eapp
+spec:
+  rules:
+  - host: int.elde.rs
+    http:
+      paths:
+      - backend:
+          serviceName: eapp
+          servicePort: 1111
+        path: /eapp
+        pathType: Prefix
+  tls:
+  - hosts:
+    - int.elde.rs
+    secretName: eapp

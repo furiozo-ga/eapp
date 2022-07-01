@@ -14,7 +14,7 @@ WORKDIR /app
 
 # Bundle app source
 #COPY . .
-COPY server.mjs .
+COPY eapp.mjs .
 COPY node_modules node_modules
 
 EXPOSE 8080
