@@ -1,0 +1,13 @@
+{
+  "name": "express-app",
+  "version": "1.0.0",
+  "description": "test express app",
+  "author": "First Last <first.last@example.com>",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "express": ">=4.18.1"
+  }
+}
