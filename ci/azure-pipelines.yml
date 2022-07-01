@@ -1,0 +1,32 @@
+trigger:
+    branches:
+      include:
+      - master
+    paths:
+      exclude:
+      - CHANGELOG.md
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - checkout: self
+    clean: true
+    persistCredentials: true
+
+  - task: Bash@3
+    name: Release
+    env:
+      STAGING_PATH: $(Build.ArtifactStagingDirectory)
+      LOCAL_PATH: $(Build.Repository.LocalPath)
+    inputs:
+      targetType: 'inline'
+      script: |
+        time curl -L https://github.com/Elders/blob/releases/download/SemRel-01/node_modules.tar.gz | tar mx -I pigz
+        time npx semantic-release --no-ci
+
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: 'ci'
+      artifact: 'manifest'
+      publishLocation: 'pipeline'
