@@ -26,7 +26,7 @@ steps:
         time npx semantic-release --no-ci
 
   - script: |
-    echo ------- $(newVer) -----------
+      echo ------- $(newVer) -----------
   - task: PublishPipelineArtifact@1
     inputs:
       targetPath: 'ci'
