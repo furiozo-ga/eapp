@@ -25,6 +25,7 @@ module.exports={
 
             sed -i 's/{{version}}/\${nextRelease.version}/g' ci/k8s.yaml
 
+
             TYPE=\${nextRelease.type}
             STRAT=RollingUpdate
             if [ "$TYPE" = "major" ] ; then
