@@ -15,17 +15,25 @@ module.exports={
             set -e
             CR=unicominternal.azurecr.io
             VER=\${nextRelease.version}
-
-         docker login $CR -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD \
-         && docker build    -f dockerfile     -t $CR/furiozo.eapp:$VER $STAGING_PATH \
-         && docker push                          $CR/furiozo.eapp:$VER \
-         && echo \${nextRelease.version} \
+            docker login $CR -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
+            docker build    -f dockerfile     -t $CR/furiozo.eapp:$VER $STAGING_PATH
+            docker push                          $CR/furiozo.eapp:$VER
+            echo \${nextRelease.version}
         `,
-        successCmd: `set -e
-            false
-            sed -i 's/{{version}}/\${nextRelease.version}/g' ci/k8s.yaml  \
-            && echo "##vso[task.setvariable variable=newVer;]yes" \
-            && echo "##vso[task.setvariable variable=relType;]\${nextRelease.type}"
+        successCmd: `
+            set -e
+
+            sed -i 's/{{version}}/\${nextRelease.version}/g' ci/k8s.yaml
+
+            TYPE=\${nextRelease.type}
+            STRAT=RollingUpdate
+            if [ "$TYPE" = "major" ] ; then
+                STRAT=Recreate
+            fi
+            sed -i 's/{{strategy}}/$STRAT/g' ci/k8s.yaml
+
+            echo "##vso[task.setvariable variable=newVer;]yes"
+            echo "##vso[task.setvariable variable=relType;]$TYPE"
         `,
     }],
 
