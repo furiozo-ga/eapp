@@ -1,3 +1,5 @@
+# [3.0.0](https://github.com/furiozo-ga/eapp/compare/v2.0.0...v3.0.0) (2022-07-01)
+
 # [2.0.0](https://github.com/furiozo-ga/eapp/compare/v1.0.3...v2.0.0) (2022-07-01)
 
 
