@@ -24,10 +24,10 @@ steps:
       script: |
         time curl -L https://github.com/Elders/blob/releases/download/SemRel-01/node_modules.tar.gz | tar mx -I pigz
         time npx semantic-release --no-ci
+        echo ------- $(newVer) -----------
 
-  - script: |
-      echo ------- $(newVer) -----------
   - task: PublishPipelineArtifact@1
+    condition: and(eq(variables['newVer'], 'yes'), succeeded())
     inputs:
       targetPath: 'ci'
       artifact: 'manifest'
