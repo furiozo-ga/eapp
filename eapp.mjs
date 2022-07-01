@@ -19,9 +19,12 @@ const app = express();
 app.use('/', (req, res) => {
     //console.log(req.socket.server.close())
     let n=parseInt(req.query.n)
-    for(let c=0;c<n;++c){1+1}
+    let o=n
+    for(;--n>0;){
+        Math.atan(n) * Math.tan(n) + Math.hypot(n, Math.sqrt(n))
+    }
     res.send(
-        req.socket.remoteAddress+' '+(req.query.n)+' '+os.hostname()
+        req.socket.remoteAddress+' '+o+' '+os.hostname()
         +(req.query.h?`\n`+JSON.stringify(req.headers,null,4)+`\n`:'')
     );
 //    res.send('asdasd')

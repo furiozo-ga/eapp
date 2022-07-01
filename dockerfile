@@ -20,5 +20,5 @@ COPY node_modules node_modules
 EXPOSE 8080
 #STOPSIGNAL SIGINT
 
-CMD [ "node", "server.mjs" ]
+CMD [ "node", "eapp.mjs" ]
 #CMD [ "ls", "-l" ]
