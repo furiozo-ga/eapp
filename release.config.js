@@ -12,7 +12,7 @@ module.exports={
 
     ["@semantic-release/exec",{
         prepareCmd: `CR=unicominternal.azurecr.io && VER=\${nextRelease.version} \
-         && docker login $CR -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD \\
+         && docker login $CR -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD \
          && docker build    -f dockerfile     -t $CR/furiozo.eapp:$VER $STAGING_PATH
          && docker push                          $CR/furiozo.eapp:$VER
          && echo \${nextRelease.version} \
