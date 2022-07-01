@@ -15,7 +15,7 @@ module.exports={
          && echo \${nextRelease.version} \
         `,
         successCmd: `\
-            sed -i 's/{{version}}/\${nextRelease.version}/g' ci/manifest.yaml \
+            sed -i 's/{{version}}/\${nextRelease.version}/g' ci/manifest.yaml  \
             && echo "##vso[task.setvariable variable=newVer;]yes"
         `,
     }],
