@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/furiozo-ga/eapp/compare/v1.0.0...v1.0.1) (2022-07-01)
+
+
+### Bug Fixes
+
+* asdasdasd ([1011f94](https://github.com/furiozo-ga/eapp/commit/1011f947aac660fb796bfc1b21004fe722804e65))
+* asdasdasd ([75ecb21](https://github.com/furiozo-ga/eapp/commit/75ecb2197c0d4c41d1819605acb67059765fc4e5))
+
 # 1.0.0 (2022-07-01)
 
 
