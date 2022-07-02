@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/furiozo-ga/eapp/compare/v3.0.1...v3.0.2) (2022-07-02)
+
+
+### Bug Fixes
+
+* asdad ([0a1148c](https://github.com/furiozo-ga/eapp/commit/0a1148cd45dafaa00d96f2db66779d3d1c216855))
+
 ## [3.0.1](https://github.com/furiozo-ga/eapp/compare/v3.0.0...v3.0.1) (2022-07-02)
 
 
