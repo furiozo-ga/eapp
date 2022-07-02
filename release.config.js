@@ -26,14 +26,20 @@ module.exports={
             sed -i 's/{{version}}/\${nextRelease.version}/g' ci/k8s.yaml
 
             TYPE=\${nextRelease.type}
-            STRAT=RollingUpdate
+            echo release type is $TYPE
             if [ "$TYPE" = "major" ] ; then
-                STRAT=Recreate
+                sed -i "
+                /{{strategy}}/ {
+                    s/{{strategy}}/Recreate/
+                    p
+                    N;N;N;d
+                }" ci/k8s.yaml
+            else
+                sed -i "s/{{strategy}}/RollingUpdate/" ci/k8s.yaml
             fi
-            sed -i "s/{{strategy}}/$STRAT/g" ci/k8s.yaml
 
             echo "##vso[task.setvariable variable=newVer;]yes"
-            echo "##vso[task.setvariable variable=relType;]$TYPE"
+            echo "##vso[task.setvariable variable=relType;isoutput=true]$TYPE"
         `,
     }],
 
