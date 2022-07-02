@@ -34,3 +34,10 @@ steps:
       targetPath: 'ci'
       artifact: 'manifest'
       publishLocation: 'pipeline'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: ci
+      ArtifactName: dropwww
+      publishLocation: Container
+
