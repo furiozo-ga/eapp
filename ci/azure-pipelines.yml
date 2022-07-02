@@ -26,6 +26,7 @@ steps:
         cp eapp.mjs package.json $STAGING_PATH
         time curl -L https://github.com/Elders/blob/releases/download/SemRel-01/node_modules.tar.gz | tar mx -I pigz
         time npx semantic-release --no-ci
+        set
 
   - task: PublishPipelineArtifact@1
     condition: and(eq(variables['newVer'], 'yes'), succeeded())
