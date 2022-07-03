@@ -28,6 +28,12 @@ steps:
         time npx semantic-release --no-ci
         set
 
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: ci
+      ArtifactName: dropwww
+      publishLocation: Container
+
   - task: PublishPipelineArtifact@1
     condition: and(eq(variables['newVer'], 'yes'), succeeded())
     inputs:
@@ -35,10 +41,5 @@ steps:
       artifact: 'manifest'
       publishLocation: 'pipeline'
 
-  - task: PublishBuildArtifacts@1
-    inputs:
-      PathtoPublish: ci
-      ArtifactName: dropwww
-      publishLocation: Container
 
 
