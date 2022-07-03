@@ -41,7 +41,7 @@ module.exports={
 
             echo "##vso[task.setvariable variable=newVer;]yes"
             echo "##vso[task.setvariable variable=relType;isoutput=true]$TYPE"
-            ##vso[build.addbuildtag]$TYPE
+            echo "##vso[build.addbuildtag]$TYPE"
         `,
     }],
 
