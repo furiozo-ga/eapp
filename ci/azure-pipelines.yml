@@ -28,7 +28,13 @@ steps:
         time npx semantic-release --no-ci
         set
 
+  - publish: ci
+    name: publish artifact
+    condition: and(eq(variables['newVer'], 'yes'), succeeded())
+    artifact: art1
+
   - task: PublishBuildArtifacts@1
+    condition: and(eq(variables['newVer'], 'yes'), succeeded())
     inputs:
       PathtoPublish: ci
       ArtifactName: dropwww
