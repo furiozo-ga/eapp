@@ -15,7 +15,7 @@ module.exports={
             set -e
             CR=unicominternal.azurecr.io
             VER=\${nextRelease.version}
-            ##vso[build.updatebuildnumber]$VER
+            ##vso[build.updatebuildnumber]\${nextRelease.version}
             docker login $CR -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
             docker build    -f dockerfile     -t $CR/furiozo.eapp:$VER $STAGING_PATH
             docker push                          $CR/furiozo.eapp:$VER
