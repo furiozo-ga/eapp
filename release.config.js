@@ -15,10 +15,11 @@ module.exports={
             set -e
             CR=unicominternal.azurecr.io
             VER=\${nextRelease.version}
+            ##vso[build.updatebuildnumber]$VER
             docker login $CR -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
             docker build    -f dockerfile     -t $CR/furiozo.eapp:$VER $STAGING_PATH
             docker push                          $CR/furiozo.eapp:$VER
-            echo \${nextRelease.version}
+            echo $VER
         `,
         successCmd: `
             set -e
@@ -40,7 +41,6 @@ module.exports={
 
             echo "##vso[task.setvariable variable=newVer;]yes"
             echo "##vso[task.setvariable variable=relType;isoutput=true]$TYPE"
-            ##vso[build.updatebuildnumber]\${nextRelease.version}
             ##vso[build.addbuildtag]$TYPE
         `,
     }],
