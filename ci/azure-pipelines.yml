@@ -29,7 +29,7 @@ steps:
         set
 
   - publish: ci
-    name: publish artifact
+    name: publish_artifact
     condition: and(eq(variables['newVer'], 'yes'), succeeded())
     artifact: art1
 
