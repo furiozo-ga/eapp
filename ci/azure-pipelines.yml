@@ -29,6 +29,7 @@ steps:
         set
 
   - publish: ci
+    enabled: false
     name: publish_artifact
     condition: and(eq(variables['newVer'], 'yes'), succeeded())
     artifact: art1
@@ -37,10 +38,12 @@ steps:
     condition: and(eq(variables['newVer'], 'yes'), succeeded())
     inputs:
       PathtoPublish: ci
-      ArtifactName: dropwww
-      publishLocation: Container
+      #ArtifactName: drop
+      #publishLocation: Container
+      storeAsTar: true
 
   - task: PublishPipelineArtifact@1
+    enabled: false
     condition: and(eq(variables['newVer'], 'yes'), succeeded())
     inputs:
       targetPath: 'ci'
