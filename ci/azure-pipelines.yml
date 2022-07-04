@@ -40,7 +40,7 @@ steps:
       PathtoPublish: ci
       #ArtifactName: drop
       #publishLocation: Container
-      storeAsTar: true
+      #storeAsTar: true
 
   - task: PublishPipelineArtifact@1
     enabled: false
