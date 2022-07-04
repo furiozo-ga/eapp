@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/furiozo-ga/eapp/compare/v3.1.1...v3.2.0) (2022-07-04)
+
+
+### Features
+
+* qwqwqwqw ([08fde70](https://github.com/furiozo-ga/eapp/commit/08fde70cb4ff39abaa01ffe57d66b1c6ac56e888))
+
 ## [3.1.1](https://github.com/furiozo-ga/eapp/compare/v3.1.0...v3.1.1) (2022-07-04)
 
 
