@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/furiozo-ga/eapp/compare/v3.1.0...v3.1.1) (2022-07-04)
+
+
+### Bug Fixes
+
+* zxzxzx ([46562f3](https://github.com/furiozo-ga/eapp/commit/46562f372c41cc92d2ede63198afbc4266f13848))
+
 # [3.1.0](https://github.com/furiozo-ga/eapp/compare/v3.0.7...v3.1.0) (2022-07-03)
 
 
