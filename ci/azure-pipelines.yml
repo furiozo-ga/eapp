@@ -46,7 +46,7 @@ steps:
     enabled: false
     condition: and(eq(variables['newVer'], 'yes'), succeeded())
     inputs:
-      targetPath: 'ci'
+      targetPath: ci
       artifact: 'manifest'
       publishLocation: 'pipeline'
 
