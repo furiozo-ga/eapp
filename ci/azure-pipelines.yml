@@ -50,5 +50,3 @@ steps:
       artifact: 'manifest'
       publishLocation: 'pipeline'
 
-
-
